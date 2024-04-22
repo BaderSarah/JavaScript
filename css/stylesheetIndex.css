@@ -1,0 +1,41 @@
+:root {
+  --brightyellow: #ffc82c;
+  --gold: #dfb94c;
+  --darkblue: #0042d6;
+  --lightblue: #6292fd;
+  --pink: #e37383;
+  --lightpink: #ffb6c1;
+}
+
+@font-face {
+  font-family: headerFont;
+  src: url(assets/fonts/Pacifico/Pacifico-Regular.ttf);
+}
+
+.flexboxContainer {
+  display: flex;
+  flex-direction: column;
+}
+/* paragraphs */
+
+.flexboxContainer p {
+  margin: 20px;
+  margin-left: 90px;
+  margin-right: 90px;
+  padding: 60px;
+}
+
+.flexboxContainer p:nth-child(even) {
+  background-color: var(--lightpink);
+  border-radius: 30px;
+}
+
+h1 {
+  font-family: headerFont, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+}
+
+p q {
+  font-style: italic;
+}

@@ -1,0 +1,25 @@
+.schedule {
+  display: flex;
+  padding: 50px;
+  margin: 10px;
+  flex-direction: column;
+}
+
+table,
+td,
+th,
+tr {
+  border: 2px solid grey;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 20px;
+}
+
+h1 {
+  font-family: header, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+}
