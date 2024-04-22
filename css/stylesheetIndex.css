@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: headerFont;
-  src: url(assets/fonts/Pacifico/Pacifico-Regular.ttf);
+  src: url(/assets/fonts/Pacifico/Pacifico-Regular.ttf);
 }
 
 .flexboxContainer {
@@ -39,8 +39,21 @@ h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 40px;
+  font-size: 36pt;
+  letter-spacing: 3px;
 }
 
 p q {
   font-style: italic;
+}
+
+#plants {
+  margin-left: 800px;
+}
+
+#intro {
+  margin-left: 150px;
+  margin-top: 80px;
+  margin-right: 400px;
+  margin-bottom: 110px;
 }

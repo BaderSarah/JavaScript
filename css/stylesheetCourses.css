@@ -7,25 +7,33 @@
   --lightpink: #ffb6c1;
 }
 
+@font-face {
+  font-family: headerFont;
+  src: url(/assets/fonts/Pacifico/Pacifico-Regular.ttf);
+}
+
 h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 40px;
+  font-size: 36pt;
+  letter-spacing: 3px;
 }
 .addCourse {
-  padding: 40px;
-  margin: 80px;
-  margin-left: 220px;
-  margin-right: 220px;
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 120px;
+  margin-left: 210px;
+  margin-right: 210px;
   background-color: var(--lightblue);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: repeat(4, 70px);
+  grid-template-rows: 50px repeat(4, 80px);
   grid-template-columns: repeat(4, 1fr);
 }
 
 .course div:nth-child(odd) {
-  padding: 40px;
+  padding: 20px;
   margin: 80px;
   margin-left: 220px;
   margin-right: 100px;
@@ -37,7 +45,7 @@ h1 {
 }
 
 .course div:nth-child(even) {
-  padding: 40px;
+  padding: 20px;
   margin: 80px;
   margin-left: 100px;
   margin-right: 220px;
@@ -46,4 +54,20 @@ h1 {
   display: grid;
   grid-template-rows: repeat(4, 70px);
   grid-template-columns: repeat(4, 1fr);
+}
+
+#imgPlus {
+  height: 190px;
+  grid-row: 4;
+  grid-column: 4;
+}
+.addCourse p {
+  text-align: center;
+  grid-row: 1;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: center;
+  color: white;
+  font-size: 16pt;
+  font-family: headerFont, Arial, Helvetica, sans-serif;
 }
