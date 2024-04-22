@@ -30,6 +30,11 @@
   border-radius: 30px;
 }
 
+.flexboxContainer p:nth-child(odd):hover {
+  border-radius: 20px;
+  border: black 2px dashed;
+}
+
 h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
