@@ -1,5 +1,49 @@
+:root {
+  --brightyellow: #ffc82c;
+  --gold: #dfb94c;
+  --darkblue: #0042d6;
+  --lightblue: #6292fd;
+  --pink: #e37383;
+  --lightpink: #ffb6c1;
+}
+
 h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 40px;
+}
+.addCourse {
+  padding: 40px;
+  margin: 80px;
+  margin-left: 220px;
+  margin-right: 220px;
+  background-color: var(--lightblue);
+  border-radius: 15px;
+  display: grid;
+  grid-template-rows: repeat(4, 70px);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.course div:nth-child(odd) {
+  padding: 40px;
+  margin: 80px;
+  margin-left: 220px;
+  margin-right: 100px;
+  background-color: var(--darkblue);
+  border-radius: 15px;
+  display: grid;
+  grid-template-rows: repeat(4, 70px);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.course div:nth-child(even) {
+  padding: 40px;
+  margin: 80px;
+  margin-left: 100px;
+  margin-right: 220px;
+  background-color: var(--gold);
+  border-radius: 15px;
+  display: grid;
+  grid-template-rows: repeat(4, 70px);
+  grid-template-columns: repeat(4, 1fr);
 }
