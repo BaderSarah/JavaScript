@@ -12,6 +12,11 @@
   src: url(/assets/fonts/Pacifico/Pacifico-Regular.ttf);
 }
 
+@font-face {
+  font-family: formFont;
+  src: url(/assets/fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf);
+}
+
 h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
@@ -44,6 +49,10 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.course div:nth-child(odd) h2 {
+  text-align: right;
+}
+
 .course div:nth-child(even) {
   padding: 20px;
   margin: 80px;
@@ -56,12 +65,13 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-#imgPlus {
+#add {
   height: 190px;
   grid-row: 4;
   grid-column: 4;
 }
-.addCourse h2 {
+
+#addCourseH2 {
   grid-row-start: 1;
   grid-column-start: 2;
   grid-column-end: 4;
@@ -77,8 +87,28 @@ h2 {
 #name {
   grid-row: 3;
   grid-column: 1;
-  font-size: 14pt;
+}
+
+#courseName {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+form {
+  font-family: formFont, Arial, Helvetica, sans-serif;
+}
+
+label {
   padding: 20px;
   margin: 10px;
-  text-align: right;
+  text-align: center;
+  vertical-align: center;
+  font-size: 14pt;
+}
+
+input {
+  height: 30px;
+  vertical-align: center;
+  border-radius: 5px;
+  border: var(--darkblue) solid 2px;
 }
