@@ -13,4 +13,8 @@ export default class Course {
   addToDo(subject, time, importance) {
     this.#toDOs.push([subject, time, importance]);
   }
+
+  get toDos() {
+    return this.#toDOs;
+  }
 }
