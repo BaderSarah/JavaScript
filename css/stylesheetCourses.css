@@ -28,7 +28,7 @@ h1 {
   background-color: var(--lightblue);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: 50px repeat(4, 80px);
+  grid-template-rows: 30px repeat(4, 80px);
   grid-template-columns: repeat(4, 1fr);
 }
 

@@ -12,6 +12,11 @@
   src: url(/assets/fonts/Pacifico/Pacifico-Regular.ttf);
 }
 
+@font-face {
+  font-family: introFont;
+  src: url(/assets/fonts/Sedan/Sedan-Regular.ttf);
+}
+
 .flexboxContainer {
   display: flex;
   flex-direction: column;
@@ -55,5 +60,6 @@ p q {
   margin-left: 150px;
   margin-top: 80px;
   margin-right: 400px;
-  margin-bottom: 110px;
+  margin-bottom: 90px;
+  font-family: introFont, Arial, Helvetica, sans-serif;
 }
