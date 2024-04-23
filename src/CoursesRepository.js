@@ -1,4 +1,4 @@
-// import Course from "./Course.js";
+import Course from "./Course.js";
 
 export default class CoursesRepository {
   #courses = [];
@@ -17,5 +17,10 @@ export default class CoursesRepository {
 
   get courses() {
     return this.#courses;
+  }
+
+  addToDotoCourse(name, subject, time, importance) {
+    const course = this.giveCourse(name);
+    course.addToDo(subject, time, importance);
   }
 }
