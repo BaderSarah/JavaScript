@@ -20,13 +20,13 @@
     <main>
       <h1>Courses</h1>
       <div class="addCourse">
-        <h2 id="addCourseH2">Here you can add a new course.</h2>
-        <form id="name">
-          <label id="nameLabel">
-            Name: <input type="text" id="courseName" placeholder="name" />
-          </label>
-        </form>
-        <img src="assets/images/plus.png" alt="add button" id="add" />
+        <h2>Here you can add a new course.</h2>
+        <div class="name">
+          <label> Name: </label>
+          <input type="text" id="inputName" placeholder="name" />
+        </div>
+        <p id="error"></p>
+        <button id="add">Add</button>
       </div>
       <div class="course">
         <div id="courseOne">
@@ -50,5 +50,6 @@
         </a>
       </ul>
     </footer>
+    <script src="src/script.js"></script>
   </body>
 </html>

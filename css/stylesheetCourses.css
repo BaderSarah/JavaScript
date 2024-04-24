@@ -27,14 +27,14 @@ h1 {
 .addCourse {
   padding: 20px;
   margin-top: 60px;
-  margin-bottom: 120px;
-  margin-left: 210px;
-  margin-right: 210px;
+  margin-bottom: 80px;
+  margin-left: 310px;
+  margin-right: 310px;
   background-color: var(--lightblue);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: 30px repeat(4, 80px);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 50px repeat(2, 80px);
+  grid-template-columns: 20px repeat(2, 280px) 20px;
 }
 
 .course div:nth-child(odd) {
@@ -66,13 +66,28 @@ h1 {
 }
 
 #add {
-  height: 190px;
-  grid-row: 4;
-  grid-column: 4;
+  grid-row: 3;
+  grid-column: 3;
+  border-radius: 5px;
+  border: rgb(246, 37, 71) solid 2px;
+  background-color: var(--lightpink);
+  margin: 15px;
+  margin-left: 65px;
+  margin-right: 0;
+  color: rgb(246, 37, 71);
+  font-size: 16pt;
+  font-weight: bold;
+  font-family: formFont, Arial, Helvetica, sans-serif;
 }
 
-#addCourseH2 {
-  grid-row-start: 1;
+#add:hover {
+  background-color: var(--pink);
+  color: var(--lightpink);
+  font-size: 18pt;
+}
+
+.addCourse h2 {
+  grid-row: 1;
   grid-column-start: 2;
   grid-column-end: 4;
 }
@@ -84,18 +99,20 @@ h2 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
 }
 
-#name {
-  grid-row: 3;
-  grid-column: 1;
+.name {
+  margin-top: 30px;
+  width: 60%;
+  grid-row: 2;
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
 
-#courseName {
+#error {
   grid-row: 3;
   grid-column: 2;
-}
-
-form {
-  font-family: formFont, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: -9px;
+  color: #002c8d;
 }
 
 label {
@@ -104,6 +121,7 @@ label {
   text-align: center;
   vertical-align: center;
   font-size: 14pt;
+  font-family: formFont, Arial, Helvetica, sans-serif;
 }
 
 input {
@@ -111,4 +129,5 @@ input {
   vertical-align: center;
   border-radius: 5px;
   border: var(--darkblue) solid 2px;
+  font-family: formFont, Arial, Helvetica, sans-serif;
 }
