@@ -184,3 +184,63 @@ input {
   font-family: formFont, Arial, Helvetica, sans-serif;
   margin-top: -12px;
 }
+
+.course .addToDo {
+  grid-row: 3;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  border: black dashed 2px;
+  margin: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 4px;
+  background-color: rgb(170, 170, 255);
+}
+
+.course #addToDo {
+  grid-row: 4;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-bottom: 7px;
+  color: white;
+  font-size: 14pt;
+  font-family: formFont, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.course div:nth-child(even) #addToDo {
+  border: var(--lightblue) solid 2px;
+  background-color: var(--darkblue);
+  border-radius: 3px;
+}
+
+.course div:nth-child(even) #addToDo:hover {
+  border: var(--darkblue) solid 2px;
+  background-color: var(--lightblue);
+  border-radius: 3px;
+}
+
+.course div:nth-child(odd) #addToDo {
+  border: var(--brightyellow) solid 2px;
+  background-color: var(--gold);
+  border-radius: 3px;
+}
+
+.course div:nth-child(odd) #addToDo:hover {
+  border: var(--gold) solid 2px;
+  background-color: var(--brightyellow);
+  border-radius: 3px;
+}
+
+.course .addToDoTitle {
+  grid-row: 2;
+  grid-column: 3;
+  text-align: center;
+  color: black;
+  text-decoration: underline dashed;
+  margin-top: 40px;
+  letter-spacing: 1px;
+  font-size: 16pt;
+}
