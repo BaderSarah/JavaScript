@@ -17,6 +17,11 @@
   src: url(/assets/fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: myFirstFont;
+  src: url(/assets/fonts/Lato/RobotoCondensed-Italic-VariableFont_wght.ttf);
+}
+
 h1 {
   font-family: headerFont, Arial, Helvetica, sans-serif;
   text-align: center;
@@ -45,12 +50,8 @@ h1 {
   background-color: var(--darkblue);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: repeat(4, 100px);
+  grid-template-rows: 60px 60px 320px 60px;
   grid-template-columns: repeat(4, 1fr);
-}
-
-.course div:nth-child(odd) h2 {
-  text-align: right;
 }
 
 .course div:nth-child(even) {
@@ -61,7 +62,7 @@ h1 {
   background-color: var(--gold);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: 50px repeat(4, 100px);
+  grid-template-rows: 60px 60px 320px 60px;
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -136,7 +137,50 @@ input {
   grid-row: 1;
   grid-column-start: 1;
   grid-column-end: 3;
+  font-size: 20pt;
 }
 
-.course h3 {
+.course .toDO {
+  grid-row: 2;
+  grid-column: 1;
+  text-align: center;
+  color: black;
+  text-decoration: underline dashed;
+  margin-top: 40px;
+  letter-spacing: 1px;
+  font-size: 16pt;
+}
+
+.course .toDos {
+  border: black solid 3px;
+  margin: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 4px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 3;
+  color: white;
+}
+
+.course .toDos li,
+.course .toDos ul {
+  display: block;
+  padding: 5px;
+  margin-left: 10px;
+  margin-top: 3px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
+}
+
+.course .toDos ul {
+  list-style-type: disc;
+}
+
+.course #timeIndicator {
+  grid-row: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  font-family: formFont, Arial, Helvetica, sans-serif;
+  margin-top: -12px;
 }
