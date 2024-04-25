@@ -27,7 +27,7 @@ h1 {
 .addCourse {
   padding: 20px;
   margin-top: 60px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   margin-left: 310px;
   margin-right: 310px;
   background-color: var(--lightblue);
@@ -45,7 +45,7 @@ h1 {
   background-color: var(--darkblue);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: repeat(4, 70px);
+  grid-template-rows: repeat(4, 100px);
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -61,7 +61,7 @@ h1 {
   background-color: var(--gold);
   border-radius: 15px;
   display: grid;
-  grid-template-rows: repeat(4, 70px);
+  grid-template-rows: 50px repeat(4, 100px);
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -130,4 +130,13 @@ input {
   border-radius: 5px;
   border: var(--darkblue) solid 2px;
   font-family: formFont, Arial, Helvetica, sans-serif;
+}
+
+.course h2 {
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.course h3 {
 }
