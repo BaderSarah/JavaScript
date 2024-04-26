@@ -97,7 +97,7 @@ h2 {
   text-align: center;
   color: white;
   font-size: 16pt;
-  font-family: headerFont, Arial, Helvetica, sans-serif;
+  font-family: headerFont, cursive, Arial, Helvetica, sans-serif;
 }
 
 .name {
@@ -191,10 +191,13 @@ input {
   grid-column-end: 5;
   border: black dashed 2px;
   margin: 20px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 35px;
+  margin-right: 35px;
   border-radius: 4px;
   background-color: pink;
+  display: grid;
+  grid-template-rows: 25px repeat(4, 1fr) 25px;
+  grid-template-columns: 25px repeat(3, 107px) 25px;
 }
 
 .course #addToDo {
@@ -243,4 +246,23 @@ input {
   margin-top: 40px;
   letter-spacing: 1px;
   font-size: 16pt;
+}
+
+.course .addToDo .title {
+  grid-row: 2;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.course .addToDo .time {
+  grid-row: 3;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.course .addToDo .urgency {
+  grid-row: 4;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  display: inline;
 }
