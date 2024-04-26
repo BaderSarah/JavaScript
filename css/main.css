@@ -5,6 +5,7 @@
   --lightblue: #6292fd;
   --pink: #e37383;
   --lightpink: #ffb6c1;
+  --lightpink2: #ffa5b3;
 }
 
 @font-face {
@@ -30,10 +31,13 @@ nav {
 }
 
 ul {
-  list-style-type: none;
   padding: 20px;
   display: flex;
   align-items: center;
+}
+
+.main {
+  list-style-type: none;
 }
 
 nav li {
@@ -51,7 +55,7 @@ a {
 }
 
 nav a:hover {
-  background-color: var(--lightpink);
+  background-color: var(--lightpink2);
 }
 
 /* Footer */

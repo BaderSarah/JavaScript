@@ -4,6 +4,7 @@
   --darkblue: #0042d6;
   --lightblue: #6292fd;
   --pink: #e37383;
+  --lightpink2: #fbadb9;
 }
 
 @font-face {
@@ -30,7 +31,7 @@
 }
 
 .flexboxContainer p:nth-child(even) {
-  background-color: var(--lightpink);
+  background-color: var(--lightpink2);
   border-radius: 30px;
 }
 

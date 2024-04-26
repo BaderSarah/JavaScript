@@ -164,6 +164,7 @@ input {
 
 .course .toDos li,
 .course .toDos ul {
+  list-style: circle;
   display: block;
   padding: 5px;
   margin-left: 10px;
@@ -264,4 +265,9 @@ input {
   grid-column-start: 2;
   grid-column-end: 5;
   display: inline;
+}
+
+.radioB {
+  margin-right: -20px;
+  margin-top: 15px;
 }
