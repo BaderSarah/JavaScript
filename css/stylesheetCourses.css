@@ -1,10 +1,9 @@
 :root {
-  --brightyellow: #ffc82c;
-  --gold: #dfb94c;
+  --lightpink: #ffdbd1;
+  --pink2: #ffa4a4;
   --darkblue: #0042d6;
   --lightblue: #6292fd;
   --pink: #e37383;
-  --lightpink: #ffb6c1;
 }
 
 @font-face {
@@ -59,7 +58,7 @@ h1 {
   margin: 80px;
   margin-left: 100px;
   margin-right: 220px;
-  background-color: var(--gold);
+  background-color: var(--pink2);
   border-radius: 15px;
   display: grid;
   grid-template-rows: 60px 60px 320px 60px;
@@ -82,7 +81,7 @@ h1 {
 }
 
 #add:hover {
-  background-color: var(--pink);
+  background-color: rgb(218, 126, 141);
   color: var(--lightpink);
   font-size: 18pt;
 }
@@ -226,14 +225,14 @@ input {
 }
 
 .course div:nth-child(odd) #addToDo {
-  border: var(--brightyellow) solid 2px;
-  background-color: var(--gold);
+  border: var(--lightpink) solid 2px;
+  background-color: var(--pink2);
   border-radius: 3px;
 }
 
 .course div:nth-child(odd) #addToDo:hover {
-  border: var(--gold) solid 2px;
-  background-color: var(--brightyellow);
+  border: var(--pink2) solid 2px;
+  background-color: var(--lightpink);
   border-radius: 3px;
 }
 

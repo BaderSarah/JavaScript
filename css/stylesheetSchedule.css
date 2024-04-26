@@ -1,3 +1,11 @@
+:root {
+  --lightpink: #ffdbd1;
+  --pink2: #ffa4a4;
+  --darkblue: #0042d6;
+  --lightblue: #6292fd;
+  --pink: #e37383;
+}
+
 @font-face {
   font-family: headerFont;
   src: url(/assets/fonts/Pacifico/Pacifico-Regular.ttf);
