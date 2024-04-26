@@ -266,9 +266,10 @@ input {
   grid-column-start: 2;
   grid-column-end: 5;
   display: inline;
+  font-size: 12pt;
 }
 
 .radioB {
-  margin-right: -20px;
+  margin-right: -25px;
   margin-top: 15px;
 }
