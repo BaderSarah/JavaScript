@@ -1,4 +1,4 @@
-import CoursesComponent from "../CoursesComponent.js";
+import CoursesComponent from "./CoursesComponent.js";
 
 const init = function () {
   const component = new CoursesComponent();

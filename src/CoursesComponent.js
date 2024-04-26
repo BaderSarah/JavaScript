@@ -1,4 +1,4 @@
-import CoursesRepository from "../CoursesRepository.js";
+import CoursesRepository from "./CoursesRepository.js";
 
 export default class CoursesComponent {
   #names = [];
@@ -8,6 +8,7 @@ export default class CoursesComponent {
   constructor() {
     this.#coursesRepository = new CoursesRepository();
     this.#storage = window.localStorage;
+    this.#printCoursesConsole();
 
     document.getElementById("add").onclick = () => {
       document.getElementById("error").innerText = "";
@@ -21,7 +22,7 @@ export default class CoursesComponent {
       } else {
         this.#addNameCourse(name);
       }
-      document.getElementById("inputName").value = ""; //tektsfiel import dan moet je de value property gebruiken
+      document.getElementById("inputName").value = "";
       console.log(this.#names);
     };
 
@@ -31,12 +32,12 @@ export default class CoursesComponent {
   #addNameCourse(name) {
     this.#names.push(name);
     this.#setNamesInStorage();
-    //this.#toHtml();
   }
 
   #toHtml() {
     this.#courseNamesToHtml();
     this.#coursesToHtml();
+    this.#addToDosToHtml;
   }
 
   #setNamesInStorage() {
@@ -54,5 +55,12 @@ export default class CoursesComponent {
 
   #coursesToHtml() {}
 
-  #addToDosToHtml() {}
+  #addToDosToHtml(name) {
+    const toDos = this.#coursesRepository.giveToDosOfCourse(name);
+  }
+
+  // help method
+  #printCoursesConsole() {
+    console.log(this.#coursesRepository.courses);
+  }
 }

@@ -1,6 +1,6 @@
 export default class Course {
   #name;
-  #toDOs = [];
+  #toDos = [];
 
   constructor(name) {
     this.#name = name;
@@ -10,17 +10,17 @@ export default class Course {
     return this.#name;
   }
 
-  addToDo(subject, time, importance) {
-    if (this.checkMaxToDos()) this.#toDOs.push([subject, time, importance]);
+  addToDo(title, time, urgency) {
+    if (this.checkMaxToDos()) this.#toDos.push([title, time, urgency]);
     else throw new error("Max toDos reached!");
   }
 
-  get toDos() {
-    return this.#toDOs;
+  get toDOs() {
+    return this.#toDos;
   }
 
   checkMaxToDos() {
-    if (this.#toDOs.length() <= 5) {
+    if (this.#toDos.length() <= 5) {
       return true;
     } else return false;
   }
