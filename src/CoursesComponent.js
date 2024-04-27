@@ -36,6 +36,10 @@ export default class CoursesComponent {
   }
 
   #toHtml() {
+    // remove the previous
+    const divAddCourse = document.getElementById("courseId");
+    divAddCourse.innerHTML = "";
+
     this.#coursesToHtml();
   }
 
