@@ -38,3 +38,21 @@ h1 {
   font-size: 36pt;
   letter-spacing: 3px;
 }
+
+p,
+button {
+  text-align: center;
+}
+
+button {
+  margin-top: 70px;
+  margin-left: 100px;
+  border-radius: 5px;
+  border: rgb(246, 37, 71) solid 2px;
+  padding: 15px;
+  background-color: var(--lightpink);
+  color: rgb(246, 37, 71);
+  font-size: 16pt;
+  font-weight: bold;
+  font-family: formFont, Aptos, Arial, Helvetica, sans-serif;
+}
