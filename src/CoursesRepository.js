@@ -8,7 +8,7 @@ export default class CoursesRepository {
   }
 
   giveCourse(name) {
-    return this.#courses.find((c) => c.name == name);
+    return this.#courses.find((c) => c.name === name);
   }
 
   giveAllCoursesNames() {
@@ -19,11 +19,20 @@ export default class CoursesRepository {
     return this.#courses;
   }
 
+  set courses(courses) {
+    this.#courses = courses;
+  }
+
+  addExistingCourse(course) {
+    this.#courses.push(course);
+  }
+
   addToDoToCourse(name, title, time, urgency) {
     const course = this.giveCourse(name);
     course.addToDo(title, time, urgency);
   }
 
+  // non
   giveToDosOfCourse(name) {
     return this.#courses.find((c) => c.name == name).toDos;
   }

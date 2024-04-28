@@ -4,10 +4,14 @@ export default class CoursesComponent {
   #names = [];
   #storage;
   #coursesRepository;
+  #courses;
 
   constructor() {
     this.#coursesRepository = new CoursesRepository();
     this.#storage = window.localStorage;
+    this.#setCoursesInStorage();
+    this.#addStorageCoursesToRepo();
+
     this.#printCoursesConsole();
 
     document.getElementById("add").onclick = () => {
@@ -33,6 +37,7 @@ export default class CoursesComponent {
   #addNameCourse(name) {
     this.#names.push(name);
     this.#setNamesInStorage();
+    this.#setCoursesInStorage();
   }
 
   #toHtml() {
@@ -44,13 +49,34 @@ export default class CoursesComponent {
   }
 
   #setNamesInStorage() {
-    this.#storage.setItem("namesCourses", JSON.stringify(this.#names));
+    this.#storage.setItem("namesCourses", this.#names);
+  }
+
+  #setCoursesInStorage() {
+    this.#storage.setItem(
+      "courses",
+      JSON.stringify(this.#coursesRepository.courses)
+    );
+  }
+
+  #getCoursesInStorage() {
+    this.#courses = [];
+    if (this.#storage.getItem("courses")) {
+      this.#courses = JSON.parse(this.#storage.getItem("courses"));
+    }
+  }
+
+  #addStorageCoursesToRepo() {
+    this.#getCoursesInStorage();
+    this.#courses.forEach((c) => {
+      this.#coursesRepository.addExistingCourse(c);
+    });
   }
 
   #getNamesInStorage() {
     this.#names = [];
     if (this.#storage.getItem("namesCourses")) {
-      this.#names = JSON.parse(this.#storage.getItem("namesCourses"));
+      this.#names = this.#storage.getItem("namesCourses");
     }
   }
 
@@ -188,8 +214,6 @@ export default class CoursesComponent {
       divCourse.appendChild(h3ElementSecond);
       divCourse.appendChild(spanElementSecond);
       divCourse.appendChild(btnElement);
-
-      // parent div
 
       // parent div
       const divParentEl = document.getElementById("courseId");
