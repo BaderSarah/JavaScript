@@ -16,7 +16,7 @@ export default class CoursesRepository {
   }
 
   get courses() {
-    return this.#courses;
+    return [...new Set(this.#courses)];
   }
 
   set courses(courses) {
@@ -35,5 +35,12 @@ export default class CoursesRepository {
   // non
   giveToDosOfCourse(name) {
     return this.#courses.find((c) => c.name == name).toDos;
+  }
+
+  giveCoursesJSON() {
+    const coursesJSON = this.#courses.map((c) => c.toJSON());
+    return coursesJSON;
+  }
+
   }
 }

@@ -24,4 +24,11 @@ export default class Course {
       return true;
     } else return false;
   }
+
+  toJSON() {
+    return {
+      name: this.#name,
+      toDos: this.#toDos,
+    };
+  }
 }

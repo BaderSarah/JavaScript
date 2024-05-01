@@ -4,15 +4,13 @@ export default class CoursesComponent {
   #names = [];
   #storage;
   #coursesRepository;
-  #courses;
+  #courses = [];
 
   constructor() {
     this.#coursesRepository = new CoursesRepository();
     this.#storage = window.localStorage;
-    this.#setCoursesInStorage();
-    this.#addStorageCoursesToRepo();
-
     this.#printCoursesConsole();
+    this.#toHtml();
 
     document.getElementById("add").onclick = () => {
       document.getElementById("error").innerText = "";
@@ -26,12 +24,13 @@ export default class CoursesComponent {
       } else {
         this.#addNameCourse(name);
         this.#coursesRepository.addCourse(name);
+        this.#printCoursesConsole();
       }
+      this.#setCoursesInStorage();
+      this.#addStorageCoursesToRepo();
       document.getElementById("inputName").value = "";
-      console.log(this.#names);
       this.#toHtml();
     };
-    this.#toHtml();
   }
 
   #addNameCourse(name) {
@@ -53,10 +52,10 @@ export default class CoursesComponent {
   }
 
   #setCoursesInStorage() {
-    this.#storage.setItem(
-      "courses",
-      JSON.stringify(this.#coursesRepository.courses)
-    );
+    const coursesJSON = this.#coursesRepository.giveCoursesJSON();
+    if (coursesJSON != null) {
+      this.#storage.setItem("courses", JSON.stringify(coursesJSON));
+    }
   }
 
   #getCoursesInStorage() {
@@ -81,9 +80,6 @@ export default class CoursesComponent {
   }
 
   #coursesToHtml() {
-    // parent div
-    const divAddCourse = document.getElementById("addCourseId");
-
     this.#coursesRepository.courses.forEach((course) => {
       const h2Element = document.createElement("h2");
       h2Element.innerText = `Course : ${course.name}`;
