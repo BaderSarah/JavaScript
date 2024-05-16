@@ -93,11 +93,13 @@ export default class CoursesComponent {
 
       // list of toDos:
       const ulElement = document.createElement("ul");
-      course.toDOs.forEach((t) => {
-        const liElement = document.createElement("li");
-        liElement.innerText = `${t[0]} - ${t[1]}`;
-        ulElement.appendChild(liElement);
-      });
+      if (course.toDOs != undefined) {
+        course.toDOs.forEach((t) => {
+          const liElement = document.createElement("li");
+          liElement.innerText = `${t[0]} - ${t[1]}`;
+          ulElement.appendChild(liElement);
+        });
+      }
 
       spanElement.appendChild(ulElement);
 

@@ -4,6 +4,7 @@
   --darkblue: #0042d6;
   --lightblue: #6292fd;
   --pink: #e37383;
+  --green: rgb(158, 255, 158);
 }
 
 @font-face {
@@ -45,14 +46,25 @@ button {
 }
 
 button {
-  margin-top: 70px;
-  margin-left: 100px;
+  margin-top: 30px;
+  margin-left: 80px;
   border-radius: 5px;
   border: rgb(246, 37, 71) solid 2px;
-  padding: 15px;
+  padding: 10px;
   background-color: var(--lightpink);
   color: rgb(246, 37, 71);
-  font-size: 16pt;
+  font-size: 13pt;
   font-weight: bold;
   font-family: formFont, Aptos, Arial, Helvetica, sans-serif;
+}
+
+#courseItem:nth-child(even){
+  padding: 10px;
+  background-color: var(--green);
+  border-radius: 10px;
+  border: none;
+}
+
+#courseItem:nth-child(odd){
+  
 }
