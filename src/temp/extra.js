@@ -1,6 +1,7 @@
-import CoursesRepository from "./CoursesRepository.js";
+// import CoursesRepository from "./CoursesRepository.js";
 
-export default class CoursesComponent {
+// export default 
+class extra{ // CourseComponent
   #names = [];
   #storage;
   #coursesRepository;
@@ -9,17 +10,14 @@ export default class CoursesComponent {
   constructor() {
     this.#coursesRepository = new CoursesRepository();
     this.#storage = window.localStorage;
-    this.#loadNamesFromStorage();
-    this.#loadCoursesFromStorage();
-
     this.#printCoursesConsole();
     this.#toHtml();
 
     document.getElementById("add").onclick = () => {
       document.getElementById("error").innerText = "";
-      const name = document.getElementById("inputName").value.trim();
+      const name = document.getElementById("inputName").value;
       if (
-        name === "" ||
+        name == "" ||
         this.#names.find((n) => n.toUpperCase() === name.toUpperCase())
       ) {
         document.getElementById("error").innerText =
@@ -30,17 +28,20 @@ export default class CoursesComponent {
         this.#printCoursesConsole();
       }
       this.#setCoursesInStorage();
-      this.#toHtml();
+      this.#addStorageCoursesToRepo();
       document.getElementById("inputName").value = "";
+      this.#toHtml();
     };
   }
 
   #addNameCourse(name) {
     this.#names.push(name);
     this.#setNamesInStorage();
+    this.#setCoursesInStorage();
   }
 
   #toHtml() {
+    // remove the previous
     const divAddCourse = document.getElementById("courseId");
     divAddCourse.innerHTML = "";
 
@@ -48,7 +49,7 @@ export default class CoursesComponent {
   }
 
   #setNamesInStorage() {
-    this.#storage.setItem("namesCourses", JSON.stringify(this.#names));
+    this.#storage.setItem("namesCourses", this.#names);
   }
 
   #setCoursesInStorage() {
@@ -58,35 +59,42 @@ export default class CoursesComponent {
     }
   }
 
-  #loadCoursesFromStorage() {
+  #getCoursesInStorage() {
+    this.#courses = [];
     if (this.#storage.getItem("courses")) {
       this.#courses = JSON.parse(this.#storage.getItem("courses"));
-      this.#courses.forEach((c) => {
-        this.#coursesRepository.addExistingCourse(c);
-      });
     }
   }
 
-  #loadNamesFromStorage() {
+  #addStorageCoursesToRepo() {
+    this.#getCoursesInStorage();
+    this.#courses.forEach((c) => {
+      this.#coursesRepository.addExistingCourse(c);
+    });
+  }
+
+  #getNamesInStorage() {
+    this.#names = [];
     if (this.#storage.getItem("namesCourses")) {
-      this.#names = JSON.parse(this.#storage.getItem("namesCourses"));
+      this.#names = this.#storage.getItem("namesCourses");
     }
   }
 
   #coursesToHtml() {
     this.#coursesRepository.courses.forEach((course) => {
       const h2Element = document.createElement("h2");
-      h2Element.innerText = `Course: ${course.name}`;
+      h2Element.innerText = `Course : ${course.name}`;
 
       const h3Element = document.createElement("h3");
-      h3Element.innerText = "toDo's:";
+      h3Element.innerText = "toDo's : ";
       h3Element.className = "toDo";
 
       const spanElement = document.createElement("span");
       spanElement.className = "toDos";
 
+      // list of toDos:
       const ulElement = document.createElement("ul");
-      if (course.toDOs) {
+      if (course.toDOs != undefined) {
         course.toDOs.forEach((t) => {
           const liElement = document.createElement("li");
           liElement.innerText = `${t[0]} - ${t[1]}`;
@@ -96,17 +104,20 @@ export default class CoursesComponent {
 
       spanElement.appendChild(ulElement);
 
+      // time indicator
       const pElement = document.createElement("p");
       pElement.innerText = "Total remaining time on toDos:"; // function needed to count all time
       pElement.id = "timeIndicator";
 
+      // add toDO
       const h3ElementSecond = document.createElement("h3");
       h3ElementSecond.className = "addToDoTitle";
-      h3ElementSecond.innerText = "Add ToDo:";
+      h3ElementSecond.innerText = "Add ToDo :";
 
       const spanElementSecond = document.createElement("span");
       spanElementSecond.className = "addToDo";
-
+      // inside the addToDO
+      //  title
       const spanTitleEl = document.createElement("span");
       spanTitleEl.className = "title";
 
@@ -114,12 +125,13 @@ export default class CoursesComponent {
       lblTitleEl.innerText = "Title: ";
       const inputTitleEl = document.createElement("input");
       inputTitleEl.type = "text";
-      inputTitleEl.id = `inputTitle_${course.name}`;
+      inputTitleEl.id = "inputTitle";
       inputTitleEl.placeholder = "title";
 
       spanTitleEl.appendChild(lblTitleEl);
       spanTitleEl.appendChild(inputTitleEl);
 
+      // time
       const spanTimeEl = document.createElement("span");
       spanTimeEl.className = "time";
 
@@ -127,11 +139,12 @@ export default class CoursesComponent {
       lblTimeEl.innerText = "Time estimation: ";
       const inputTimeEl = document.createElement("input");
       inputTimeEl.type = "time";
-      inputTimeEl.id = `inputTime_${course.name}`;
+      inputTimeEl.id = "inputTime";
 
       spanTimeEl.appendChild(lblTimeEl);
       spanTimeEl.appendChild(inputTimeEl);
 
+      // urgency
       const spanUrgEl = document.createElement("span");
       spanUrgEl.className = "urgency";
 
@@ -141,8 +154,8 @@ export default class CoursesComponent {
 
       const inputUrgElOne = document.createElement("input");
       inputUrgElOne.type = "radio";
-      inputUrgElOne.name = `option_${course.name}`;
-      inputUrgElOne.id = `urgencyH_${course.name}`;
+      inputUrgElOne.name = "option";
+      inputUrgElOne.id = "urgencyH";
       inputUrgElOne.value = "high";
       inputUrgElOne.className = "radioB";
       const inputUrgElOneLbl = document.createElement("label");
@@ -150,8 +163,8 @@ export default class CoursesComponent {
 
       const inputUrgElTwo = document.createElement("input");
       inputUrgElTwo.type = "radio";
-      inputUrgElTwo.name = `option_${course.name}`;
-      inputUrgElTwo.id = `urgencyM_${course.name}`;
+      inputUrgElTwo.name = "option";
+      inputUrgElTwo.id = "urgencyM";
       inputUrgElTwo.value = "medium";
       inputUrgElTwo.className = "radioB";
       const inputUrgElTwoLbl = document.createElement("label");
@@ -159,8 +172,8 @@ export default class CoursesComponent {
 
       const inputUrgElThree = document.createElement("input");
       inputUrgElThree.type = "radio";
-      inputUrgElThree.name = `option_${course.name}`;
-      inputUrgElThree.id = `urgencyL_${course.name}`;
+      inputUrgElThree.name = "option";
+      inputUrgElThree.id = "urgencyL";
       inputUrgElThree.value = "low";
       inputUrgElThree.className = "radioB";
       const inputUrgElThreeLbl = document.createElement("label");
@@ -175,28 +188,23 @@ export default class CoursesComponent {
       spanUrgEl.appendChild(inputUrgElThree);
       spanUrgEl.appendChild(inputUrgElThreeLbl);
 
+      // all spans to span
       spanElementSecond.appendChild(spanTitleEl);
       spanElementSecond.appendChild(spanTimeEl);
       spanElementSecond.appendChild(spanUrgEl);
 
+      // button add toDo
       const btnElement = document.createElement("button");
       btnElement.innerText = "Add ToDO";
-      btnElement.id = `addToDo_${course.name}`;
+      btnElement.id = "addToDo";
 
-      btnElement.onclick = () => {
-        const title = document.getElementById(`inputTitle_${course.name}`).value.trim();
-        const time = document.getElementById(`inputTime_${course.name}`).value;
-        const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
-
-        if (title && time && urgency) {
-          this.#coursesRepository.addToDo(course.name, [title, time, urgency]);
-          this.#setCoursesInStorage();
-          this.#toHtml();
-        }
-      };
-
+      // add all to div
       const divCourse = document.createElement("div");
-      divCourse.className = this.#coursesRepository.courses.indexOf(course) % 2 === 0 ? "courseEven" : "courseOdd";
+      if (this.#coursesRepository.courses.indexOf(course) % 2 === 0) {
+        divCourse.id = "courseEven";
+      } else {
+        divCourse.id = "courseOdd";
+      }
 
       divCourse.appendChild(h2Element);
       divCourse.appendChild(h3Element);
@@ -206,11 +214,13 @@ export default class CoursesComponent {
       divCourse.appendChild(spanElementSecond);
       divCourse.appendChild(btnElement);
 
+      // parent div
       const divParentEl = document.getElementById("courseId");
       divParentEl.appendChild(divCourse);
     });
   }
 
+  // help method
   #printCoursesConsole() {
     console.log(this.#coursesRepository.courses);
   }
