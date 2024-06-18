@@ -8,6 +8,7 @@ export default class CoursesRepository {
   }
 
   giveCourse(name) {
+    console.log(this.#courses.find((c) => c.name === name)); 
     return this.#courses.find((c) => c.name === name);
   }
 
@@ -28,8 +29,10 @@ export default class CoursesRepository {
   }
 
   addToDoToCourse(name, title, time, urgency) {
-    const course = this.giveCourse(name);
-    course.addToDo(title, time, urgency);
+    let course = this.giveCourse(name);
+    course = () => {
+      addToDo(title, time, urgency); 
+    };
   }
 
   // non
@@ -38,7 +41,7 @@ export default class CoursesRepository {
   }
 
   giveCoursesJSON() {
-    const coursesJSON = this.#courses.map((c) => c.toJSON());
+    const coursesJSON = this.#courses.map((c) => c.toJSON()); // ()
     return coursesJSON;
   }
 }

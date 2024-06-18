@@ -5,6 +5,7 @@
   --lightblue: #6292fd;
   --pink: #e37383;
   --green: rgb(158, 255, 158);
+  --yellow: rgb(255, 245, 158);
 }
 
 @font-face {
@@ -66,5 +67,8 @@ button {
 }
 
 #courseItem:nth-child(odd){
-  
+  padding: 10px;
+  background-color: var(--yellow);
+  border-radius: 10px;
+  border: none;
 }

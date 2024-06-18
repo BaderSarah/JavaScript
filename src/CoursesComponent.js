@@ -114,7 +114,8 @@ export default class CoursesComponent {
       lblTitleEl.innerText = "Title: ";
       const inputTitleEl = document.createElement("input");
       inputTitleEl.type = "text";
-      inputTitleEl.id = `inputTitle_${course.name}`;
+      // inputTitleEl.id = `inputTitle_${course.name}`;
+      inputTitleEl.id = `inputTitle`;
       inputTitleEl.placeholder = "title";
 
       spanTitleEl.appendChild(lblTitleEl);
@@ -127,7 +128,8 @@ export default class CoursesComponent {
       lblTimeEl.innerText = "Time estimation: ";
       const inputTimeEl = document.createElement("input");
       inputTimeEl.type = "time";
-      inputTimeEl.id = `inputTime_${course.name}`;
+      // inputTimeEl.id = `inputTime_${course.name}`;
+      inputTimeEl.id = `inputTime`;
 
       spanTimeEl.appendChild(lblTimeEl);
       spanTimeEl.appendChild(inputTimeEl);
@@ -141,8 +143,8 @@ export default class CoursesComponent {
 
       const inputUrgElOne = document.createElement("input");
       inputUrgElOne.type = "radio";
-      inputUrgElOne.name = `option_${course.name}`;
-      inputUrgElOne.id = `urgencyH_${course.name}`;
+      inputUrgElOne.name = `option`;
+      inputUrgElOne.id = `urgencyH`;
       inputUrgElOne.value = "high";
       inputUrgElOne.className = "radioB";
       const inputUrgElOneLbl = document.createElement("label");
@@ -150,8 +152,8 @@ export default class CoursesComponent {
 
       const inputUrgElTwo = document.createElement("input");
       inputUrgElTwo.type = "radio";
-      inputUrgElTwo.name = `option_${course.name}`;
-      inputUrgElTwo.id = `urgencyM_${course.name}`;
+      inputUrgElTwo.name = `option`;
+      inputUrgElTwo.id = `urgencyM`;
       inputUrgElTwo.value = "medium";
       inputUrgElTwo.className = "radioB";
       const inputUrgElTwoLbl = document.createElement("label");
@@ -159,8 +161,10 @@ export default class CoursesComponent {
 
       const inputUrgElThree = document.createElement("input");
       inputUrgElThree.type = "radio";
-      inputUrgElThree.name = `option_${course.name}`;
-      inputUrgElThree.id = `urgencyL_${course.name}`;
+      // inputUrgElThree.name = `option_${course.name}`;
+      // inputUrgElThree.id = `urgencyL_${course.name}`;
+      inputUrgElThree.name = `option`;
+      inputUrgElThree.id = `urgencyL`;
       inputUrgElThree.value = "low";
       inputUrgElThree.className = "radioB";
       const inputUrgElThreeLbl = document.createElement("label");
@@ -181,15 +185,19 @@ export default class CoursesComponent {
 
       const btnElement = document.createElement("button");
       btnElement.innerText = "Add ToDO";
-      btnElement.id = `addToDo_${course.name}`;
+      btnElement.id = "addToDo"; 
+     // btnElement.id = `addToDo_${course.name}`;
 
       btnElement.onclick = () => {
-        const title = document.getElementById(`inputTitle_${course.name}`).value.trim();
-        const time = document.getElementById(`inputTime_${course.name}`).value;
-        const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+        // const title = document.getElementById(`inputTitle_${course.name}`).value; // .trim()
+        // const time = document.getElementById(`inputTime_${course.name}`).value;
+        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+        // const title = document.getElementById(`inputTitle`).value; 
+        // const time = document.getElementById(`inputTime`).value;
+        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
 
-        if (title && time && urgency) {
-          this.#coursesRepository.addToDo(course.name, [title, time, urgency]);
+        if (true) { //  title && time && urgency
+          this.#coursesRepository.addToDoToCourse(course.name, "hallo", 2 , "medium"); // course.name, [title, time, urgency]
           this.#setCoursesInStorage();
           this.#toHtml();
         }
