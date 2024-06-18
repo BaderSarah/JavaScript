@@ -34,10 +34,14 @@ export default class Course {
     }
   }
 
-  addToDo(title, time, urgency) {
-    if (this.checkMaxToDos()) this.#toDos.push(new ToDo(title, time, urgency));
-    else throw new error("Max toDos reached!");
-  }
+  // control ? 
+
+ /*  addToDo(title, time, urgency) {
+    console.log("I work"); 
+    this.#toDos.push(new ToDo(title, time, urgency)); 
+    // if (this.checkMaxToDos()) this.#toDos.push(new ToDo(title, time, urgency));
+    // else throw new error("Max toDos reached!");
+  } */
 
 /* 
   addToDo(title, time, urgency) {

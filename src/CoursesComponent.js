@@ -188,20 +188,20 @@ export default class CoursesComponent {
       btnElement.id = "addToDo"; 
      // btnElement.id = `addToDo_${course.name}`;
 
-      btnElement.onclick = () => {
-        // const title = document.getElementById(`inputTitle_${course.name}`).value; // .trim()
-        // const time = document.getElementById(`inputTime_${course.name}`).value;
-        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
-        // const title = document.getElementById(`inputTitle`).value; 
-        // const time = document.getElementById(`inputTime`).value;
-        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+      // btnElement.onclick = () => {
+      //   // const title = document.getElementById(`inputTitle_${course.name}`).value; // .trim()
+      //   // const time = document.getElementById(`inputTime_${course.name}`).value;
+      //   // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+      //   const title = document.getElementById(`inputTitle`).value; 
+      //   const time = document.getElementById(`inputTime`).value;
+      //   const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
 
-        if (true) { //  title && time && urgency
-          this.#coursesRepository.addToDoToCourse(course.name, "hallo", 2 , "medium"); // course.name, [title, time, urgency]
-          this.#setCoursesInStorage();
-          this.#toHtml();
-        }
-      };
+      //   if (true) { //  title && time && urgency
+      //     this.#coursesRepository.addToDoToCourse(course.name, title, time, urgency); 
+      //     // this.#setCoursesInStorage();
+      //     this.#toHtml();
+      //   }
+      // };
 
       const divCourse = document.createElement("div");
       divCourse.className = this.#coursesRepository.courses.indexOf(course) % 2 === 0 ? "courseEven" : "courseOdd";
@@ -216,6 +216,21 @@ export default class CoursesComponent {
 
       const divParentEl = document.getElementById("courseId");
       divParentEl.appendChild(divCourse);
+
+      btnElement.onclick = () => {
+        // const title = document.getElementById(`inputTitle_${course.name}`).value; // .trim()
+        // const time = document.getElementById(`inputTime_${course.name}`).value;
+        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+        const title = document.getElementById(`inputTitle`).value; 
+        const time = document.getElementById(`inputTime`).value;
+        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+
+        if (true) { //  title && time && urgency
+          this.#coursesRepository.addToDoToCourse(course.name, title, time, "medium"); 
+          // this.#setCoursesInStorage();
+          this.#toHtml();
+        }
+      };
     });
   }
 

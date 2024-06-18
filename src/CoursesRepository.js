@@ -29,10 +29,10 @@ export default class CoursesRepository {
   }
 
   addToDoToCourse(name, title, time, urgency) {
-    let course = this.giveCourse(name);
-    course = () => {
-      addToDo(title, time, urgency); 
-    };
+    const course = this.giveCourse(name);
+    course.toDos.push(new Course.ToDo(title, time, urgency));  // no control
+    console.log(`course + new todo (name) ${course.name} (todos) ${course.toDos} everything: ${course}`); 
+    console.log(course); 
   }
 
   // non
