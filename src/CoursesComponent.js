@@ -144,7 +144,7 @@ export default class CoursesComponent {
       const inputUrgElOne = document.createElement("input");
       inputUrgElOne.type = "radio";
       inputUrgElOne.name = `option`;
-      inputUrgElOne.id = `urgencyH`;
+      inputUrgElOne.id = `urgency`;
       inputUrgElOne.value = "high";
       inputUrgElOne.className = "radioB";
       const inputUrgElOneLbl = document.createElement("label");
@@ -153,7 +153,7 @@ export default class CoursesComponent {
       const inputUrgElTwo = document.createElement("input");
       inputUrgElTwo.type = "radio";
       inputUrgElTwo.name = `option`;
-      inputUrgElTwo.id = `urgencyM`;
+      inputUrgElTwo.id = `urgency`;
       inputUrgElTwo.value = "medium";
       inputUrgElTwo.className = "radioB";
       const inputUrgElTwoLbl = document.createElement("label");
@@ -164,7 +164,7 @@ export default class CoursesComponent {
       // inputUrgElThree.name = `option_${course.name}`;
       // inputUrgElThree.id = `urgencyL_${course.name}`;
       inputUrgElThree.name = `option`;
-      inputUrgElThree.id = `urgencyL`;
+      inputUrgElThree.id = `urgency`;
       inputUrgElThree.value = "low";
       inputUrgElThree.className = "radioB";
       const inputUrgElThreeLbl = document.createElement("label");
@@ -223,7 +223,7 @@ export default class CoursesComponent {
         // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
         const title = document.getElementById(`inputTitle`).value; 
         const time = document.getElementById(`inputTime`).value;
-        // const urgency = document.querySelector(`input[name="option_${course.name}"]:checked`).value;
+        const urgency = document.getElementById(`urgency`).value;
 
         if (true) { //  title && time && urgency
           this.#coursesRepository.addToDoToCourse(course.name, title, time, "medium"); 
