@@ -41,7 +41,7 @@ export default class CoursesRepository {
   }
 
   giveCoursesJSON() {
-    const coursesJSON = this.#courses.map((c) => c.toJSON()); // ()
+    const coursesJSON = this.#courses.map((c) => JSON.stringify(c));//  c.toJSON()); 
     return coursesJSON;
   }
 }
